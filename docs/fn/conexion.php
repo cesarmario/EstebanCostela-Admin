@@ -1,8 +1,7 @@
 <?php
-	$hostname_ = "localhost";
-	$database_ = "c2141624_enlace";
-	$username_ = "root";
-	$password_ = "";
-	$conexion  = mysqli_connect($hostname_, $username_, $password_, $database_) or trigger_error(mysqli_error(),E_USER_ERROR);
-	mysqli_set_charset($conexion, 'utf8');
-
+$hostname_ = "localhost";
+$database_ = "xxxxxxxx";
+$username_ = "xxxxxxx";
+$password_ = "xxxxxxx";
+$conexion  = mysqli_connect($hostname_, $username_, $password_, $database_);
+mysqli_set_charset($conexion, 'utf8');
