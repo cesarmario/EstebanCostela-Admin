@@ -19,7 +19,7 @@ header("Refresh: 5; URL='../index.php'");
     <nav class="navbar navbar-light">
         <div class="container d-block">
             <a href="../index.php"><i class="bi bi-chevron-left"></i></a>
-            <a class="navbar-brand ms-4" href="index.html">
+            <a class="navbar-brand ms-4" href="index.php">
                 <img src="../assets/images/logo/logo.png">
             </a>
         </div>
