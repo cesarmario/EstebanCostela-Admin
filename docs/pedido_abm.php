@@ -1,8 +1,8 @@
 <?PHP
-    session_start();
-    include('fn/login_ctrl.php');
-    include('fn/list_opciones.php');
-    include('fn/datos_pedido.php');
+session_start();
+include('fn/login_ctrl.php');
+include('fn/list_opciones.php');
+include('fn/datos_pedido.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion - EnlaceInmobiliario</title>
+    <title>Gestion - EstebanCostela</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -63,10 +63,10 @@
                                 </li>
                                 <li class="submenu-item active">
                                     <a href="pedidos.php"><i class="fa-solid fa-circle-chevron-right"></i>&nbsp;Pedidos</a>
-                                </li>                              
+                                </li>
                             </ul>
                         </li>
-                        
+
                         <li class="sidebar-item has-sub ">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
@@ -81,35 +81,35 @@
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="propiedades.php">Propiedades</a>
-                                </li>                                  
+                                </li>
                             </ul>
                         </li>
 
                         <!-- Seccion Administrativa: Solo se habilita si el ROL del Usuario es Administrador -->
-                        <?PHP if ($_SESSION['rolUsu'] =='1') { ?>
+                        <?PHP if ($_SESSION['rolUsu'] == '1') { ?>
                             <li class="sidebar-item  has-sub">
                                 <a href="#" class='sidebar-link'>
                                     <i class="bi bi-person-badge-fill"></i>
                                     <span>Permisos</span>
                                 </a>
                                 <ul class="submenu ">
-                                <li class="submenu-item ">
+                                    <li class="submenu-item ">
                                         <a href="usuarios.php">Usuarios</a>
-                                    </li>  
+                                    </li>
                                 </ul>
                             </li>
                         <?PHP } else { ?>
                             <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-person-badge-fill"></i>
-                                <span>Perfil</span>
-                            </a>
-                            <ul class="submenu ">
-                            <li class="submenu-item ">
-                                    <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m">Mis Datos</a>
-                                </li>  
-                            </ul>
-                        </li>    
+                                <a href="#" class='sidebar-link'>
+                                    <i class="bi bi-person-badge-fill"></i>
+                                    <span>Perfil</span>
+                                </a>
+                                <ul class="submenu ">
+                                    <li class="submenu-item ">
+                                        <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m">Mis Datos</a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?PHP } ?>
                         <!-- /Seccion Administrativa-->
 
@@ -133,9 +133,7 @@
                             <i class="bi bi-justify fs-3"></i>
                         </a>
 
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -152,7 +150,7 @@
                                         <li><a class="dropdown-item">No hay notificaciones!</a></li>
                                     </ul>
                                 </!li -->
-                            </ul> 
+                            </ul>
                             <div class="dropdown">
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
@@ -171,15 +169,14 @@
                                     <li>
                                         <h6 class="dropdown-header">Hola!</h6>
                                     </li>
-                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
+                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
                                             Perfil</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
                                             Ayuda</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="fn/logout.php"><i
-                                                class="icon-mid bi bi-box-arrow-left me-2"></i> Cerrar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="fn/logout.php"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Cerrar Sesion</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -189,7 +186,7 @@
 
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-9">                        
+                    <div class="col-12 col-lg-9">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -205,92 +202,88 @@
                                                         <label for="basicInput"><b>Tipo de Propiedad</b></label>
                                                         <select class="form-select" id='idPropiedad' name='idPropiedad' require>
                                                             <option value="<?PHP echo $idPropiedad; ?>"><?PHP echo $nombrePropiedad; ?></option>
-                                                            <?PHP while($propiedad=mysqli_fetch_assoc($rtspropiedad)){?>
-                                                            <option value="<?PHP echo $propiedad['idPropiedad']; ?>"> <?PHP echo $propiedad['nombrePropiedad'];?></option>
-                                                            <?PHP } ?> 
-                                                        </select>                                    
+                                                            <?PHP while ($propiedad = mysqli_fetch_assoc($rtspropiedad)) { ?>
+                                                                <option value="<?PHP echo $propiedad['idPropiedad']; ?>"> <?PHP echo $propiedad['nombrePropiedad']; ?></option>
+                                                            <?PHP } ?>
+                                                        </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="basicInput"><b>Tipo de Operacion</b></label>
-                                                        <select class="form-select" id='idOperacion' name='idOperacion'require>
+                                                        <select class="form-select" id='idOperacion' name='idOperacion' require>
                                                             <option selected value="<?PHP echo $idOperacion; ?>"><?PHP echo $nombreOperacion; ?></option>
-                                                            <?PHP while($operacion=mysqli_fetch_assoc($rtsoperacion)){?>
-                                                            <option value="<?PHP echo $operacion['idOperacion']; ?>"> <?PHP echo $operacion['nombreOperacion'];?></option>
-                                                            <?PHP } ?> 
-                                                        </select>                                    
-                                                    </div>                                                  
+                                                            <?PHP while ($operacion = mysqli_fetch_assoc($rtsoperacion)) { ?>
+                                                                <option value="<?PHP echo $operacion['idOperacion']; ?>"> <?PHP echo $operacion['nombreOperacion']; ?></option>
+                                                            <?PHP } ?>
+                                                        </select>
+                                                    </div>
 
                                                     <div class="form-group">
                                                         <label for="basicInput"><b>Localidades</label>
-                                                        <select class="form-select"  id='localidadAPedido' name='localidadAPedido'>
+                                                        <select class="form-select" id='localidadAPedido' name='localidadAPedido'>
                                                             <option value="<?PHP echo $localidadAPedido; ?>"><?PHP echo $localidadAPedido; ?></option>
-                                                            <?PHP while($localidadA=mysqli_fetch_assoc($rtslocalidad)){?>
-                                                            <option value="<?PHP echo $localidadA['nombreLocalidad']; ?>"> <?PHP echo $localidadA['nombreLocalidad'];?></option>
-                                                            <?PHP } ?> 
+                                                            <?PHP while ($localidadA = mysqli_fetch_assoc($rtslocalidad)) { ?>
+                                                                <option value="<?PHP echo $localidadA['nombreLocalidad']; ?>"> <?PHP echo $localidadA['nombreLocalidad']; ?></option>
+                                                            <?PHP } ?>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">    
-                                                        <select class="form-select"  id='localidadBPedido' name='localidadBPedido'>
+                                                    <div class="form-group">
+                                                        <select class="form-select" id='localidadBPedido' name='localidadBPedido'>
                                                             <option value="<?PHP echo $localidadBPedido; ?>"><?PHP echo $localidadBPedido; ?></option>
-                                                            <?PHP while($localidadB=mysqli_fetch_assoc($rtslocalidadB)){?>
-                                                            <option value="<?PHP echo $localidadB['nombreLocalidad']; ?>"> <?PHP echo $localidadB['nombreLocalidad'];?></option>
-                                                            <?PHP } ?> 
+                                                            <?PHP while ($localidadB = mysqli_fetch_assoc($rtslocalidadB)) { ?>
+                                                                <option value="<?PHP echo $localidadB['nombreLocalidad']; ?>"> <?PHP echo $localidadB['nombreLocalidad']; ?></option>
+                                                            <?PHP } ?>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">    
-                                                        <select class="form-select"  id='localidadCPedido' name='localidadCPedido'>
+                                                    <div class="form-group">
+                                                        <select class="form-select" id='localidadCPedido' name='localidadCPedido'>
                                                             <option value="<?PHP echo $localidadCPedido; ?>"><?PHP echo $localidadCPedido; ?></option>
-                                                            <?PHP while($localidadC=mysqli_fetch_assoc($rtslocalidadC)){?>
-                                                            <option value="<?PHP echo $localidadC['nombreLocalidad']; ?>"> <?PHP echo $localidadC['nombreLocalidad'];?></option>
-                                                            <?PHP } ?> 
-                                                        </select>                                     
-                                                    </div >
+                                                            <?PHP while ($localidadC = mysqli_fetch_assoc($rtslocalidadC)) { ?>
+                                                                <option value="<?PHP echo $localidadC['nombreLocalidad']; ?>"> <?PHP echo $localidadC['nombreLocalidad']; ?></option>
+                                                            <?PHP } ?>
+                                                        </select>
+                                                    </div>
 
-                                                     <div class="form-group">
+                                                    <div class="form-group">
                                                         <label for="basicInput"><b>Moneda</b></label>
-                                                    <select class="choices form-select" id='importeMonedaPedido' name='importeMonedaPedido'>
+                                                        <select class="choices form-select" id='importeMonedaPedido' name='importeMonedaPedido'>
                                                             <option value="<?PHP echo $importeMonedaPedido; ?>"><?PHP echo $importeMonedaPedido; ?></option>
                                                             <option value="$">Pesos</option>
                                                             <option value="USD">Dolares</option>
-                                                        </select>                                    
+                                                        </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="basicInput"><b>Valor desde</b></label>
-                                                        <input type="text" class="form-control" id='importeDesdePedido' name='importeDesdePedido'
-                                                                value="<?PHP echo $importeDesdePedido; ?>" placeholder="Valor desde">
+                                                        <input type="text" class="form-control" id='importeDesdePedido' name='importeDesdePedido' value="<?PHP echo $importeDesdePedido; ?>" placeholder="Valor desde">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="basicInput"><b>Valor hasta</b></label>
-                                                        <input type="text" class="form-control" id='importeHastaPedido' name='importeHastaPedido'
-                                                                value="<?PHP echo $importeHastaPedido; ?>" placeholder="Valor hasta">                                   
+                                                        <input type="text" class="form-control" id='importeHastaPedido' name='importeHastaPedido' value="<?PHP echo $importeHastaPedido; ?>" placeholder="Valor hasta">
                                                     </div>
-                                                    
+
                                                     <div class="form-group">
                                                         <label for="basicInput"><b>Características</b></label>
-                                                        <input type="text" class="form-control" id='caracteristicasPedido' name='caracteristicasPedido'
-                                                                value="<?PHP echo $caracteristicasPedido; ?>" placeholder="Características">
+                                                        <input type="text" class="form-control" id='caracteristicasPedido' name='caracteristicasPedido' value="<?PHP echo $caracteristicasPedido; ?>" placeholder="Características">
                                                     </div>
-                                                    
+
                                                     <div class="form-group">
                                                         <label for="basicInput"><b>Comentarios</b></label>
-                                                        <input type="text" class="form-control" id='comentariosPedido' name='comentariosPedido'
-                                                            value="<?PHP echo $comentariosPedido; ?>" placeholder="Comentarios">
+                                                        <input type="text" class="form-control" id='comentariosPedido' name='comentariosPedido' value="<?PHP echo $comentariosPedido; ?>" placeholder="Comentarios">
                                                     </div>
 
-                                                    <?PHP if($_REQUEST['abm']!='a'){ ?>
-                                                    <div class="form-group">
-                                                        <label for="basicInput"><b>Estado</b></label>
-                                                        <select class="choices form-select" id='estado' name='estado'>
-                                                            <?PHP echo $estado; ?>
-                                                        </select>                                    
-                                                    </div>    
+                                                    <?PHP if ($_REQUEST['abm'] != 'a') { ?>
+                                                        <div class="form-group">
+                                                            <label for="basicInput"><b>Estado</b></label>
+                                                            <select class="choices form-select" id='estado' name='estado'>
+                                                                <?PHP echo $estado; ?>
+                                                            </select>
+                                                        </div>
 
-                                                    <?PHP } ?>    
+                                                    <?PHP } ?>
 
-                                                <!--    <div class="form-group">
+                                                    <!--    <div class="form-group">
                                                         <label for="basicInput">Fecha</label>
                                                         <input type="text" class="form-control" id='banosInmueble' name='banosInmueble'
                                                             placeholder="Baños">
@@ -322,19 +315,19 @@
                                                    
                                                 </div> -->
 
-                                                <div class="buttons">
-                                                    <input type="hidden" id="abm" name="abm" value="<?PHP echo $_REQUEST['abm'];?>"/>
-                                                    <input type="hidden" id="idPedido" name="idPedido" value="<?PHP echo $_REQUEST['idPedido'];?>"/>
-                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Guardar</button>
-                                                    <a href="pedidos.php" class="btn btn-warning me-1 mb-1">Cancelar</a>
-                                                </div> 
+                                                    <div class="buttons">
+                                                        <input type="hidden" id="abm" name="abm" value="<?PHP echo $_REQUEST['abm']; ?>" />
+                                                        <input type="hidden" id="idPedido" name="idPedido" value="<?PHP echo $_REQUEST['idPedido']; ?>" />
+                                                        <button type="submit" class="btn btn-primary me-1 mb-1">Guardar</button>
+                                                        <a href="pedidos.php" class="btn btn-warning me-1 mb-1">Cancelar</a>
+                                                    </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
-                    </div>                    
+                        </div>
+                    </div>
                 </section>
             </div>
 
@@ -354,9 +347,9 @@
     <script src="assets/js/pages/dashboard.js"></script>
     <script src="https://kit.fontawesome.com/1ffc2bde27.js" crossorigin="anonymous"></script>
 
-                                                         
+
     <script src="assets/js/main.js"></script>
-    
+
 </body>
 
 </html>

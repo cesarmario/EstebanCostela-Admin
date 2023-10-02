@@ -1,8 +1,8 @@
 <?PHP
-    session_start();
-	include('fn/login_ctrl.php');
-	include('fn/list_opciones.php');
-    include('fn/estaditicas.php');	
+session_start();
+include('fn/login_ctrl.php');
+include('fn/list_opciones.php');
+include('fn/estaditicas.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion - EnlaceInmobiliario</title>
+    <title>Gestion - EstebanCostela</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="assets/images/icons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/images/icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
@@ -41,25 +41,27 @@
     <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#7CBD1E">
     <style>
-         .ad2hs-prompt {
-        background-color: rgb(59, 134, 196); /* Blue */
-        border: none;
-        display: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        position: absolute;
-        margin: 0 1rem 1rem;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: calc(100% - 32px);
-      }
+        .ad2hs-prompt {
+            background-color: rgb(59, 134, 196);
+            /* Blue */
+            border: none;
+            display: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            position: absolute;
+            margin: 0 1rem 1rem;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: calc(100% - 32px);
+        }
     </style>
 </head>
 &nbsp;
+
 <body>
     <button type="button" class="ad2hs-prompt">Instalar Aplicacion</button>
     <div id="app">
@@ -100,16 +102,16 @@
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="pedidos.php">Pedidos</a>
-                                </li>                              
+                                </li>
                             </ul>
                         </li>
-                        
+
                         <li class="sidebar-item has-sub ">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
                                 <span>Datos</span>
                             </a>
-                            <ul class="submenu">                                
+                            <ul class="submenu">
                                 <li class="submenu-item ">
                                     <a href="localidades.php">Localidades</a>
                                 </li>
@@ -118,36 +120,36 @@
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="propiedades.php">Tipo&nbsp;Propiedades</a>
-                                </li>                                                                   
+                                </li>
                             </ul>
                         </li>
-                        
+
 
                         <!-- Seccion Administrativa: Solo se habilita si el ROL del Usuario es Administrador -->
-                        <?PHP if ($_SESSION['rolUsu'] =='1') { ?>
+                        <?PHP if ($_SESSION['rolUsu'] == '1') { ?>
                             <li class="sidebar-item  has-sub">
                                 <a href="#" class='sidebar-link'>
                                     <i class="bi bi-person-badge-fill"></i>
                                     <span>Permisos</span>
                                 </a>
                                 <ul class="submenu ">
-                                <li class="submenu-item ">
+                                    <li class="submenu-item ">
                                         <a href="usuarios.php">Usuarios</a>
-                                    </li>  
+                                    </li>
                                 </ul>
                             </li>
                         <?PHP } else { ?>
                             <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-person-badge-fill"></i>
-                                <span>Perfil</span>
-                            </a>
-                            <ul class="submenu ">
-                            <li class="submenu-item ">
-                                    <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m">Mis Datos</a>
-                                </li>  
-                            </ul>
-                        </li>    
+                                <a href="#" class='sidebar-link'>
+                                    <i class="bi bi-person-badge-fill"></i>
+                                    <span>Perfil</span>
+                                </a>
+                                <ul class="submenu ">
+                                    <li class="submenu-item ">
+                                        <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m">Mis Datos</a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?PHP } ?>
                         <!-- /Seccion Administrativa-->
 
@@ -157,7 +159,7 @@
                                 <span>WebMail</span>
                             </a>
                         </li>
-                                                
+
                         <li class="sidebar-item">
                             <a href="fn/logout.php" class='sidebar-link'>
                                 <i class="bi bi-x-square"></i>
@@ -178,16 +180,13 @@
                             <i class="bi bi-justify fs-3"></i>
                         </a>
 
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item dropdown me-3">
-                                    <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                    <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
@@ -197,7 +196,7 @@
                                         <li><a class="dropdown-item">No hay notificaciones!</a></li>
                                     </ul>
                                 </li>
-                            </ul> 
+                            </ul>
                             <div class="dropdown">
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
@@ -216,7 +215,7 @@
                                     <li>
                                         <h6 class="dropdown-header">Hola!</h6>
                                     </li>
-                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
+                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
                                             Perfil</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>Ayuda</a></li>
                                     <li>
@@ -318,13 +317,13 @@
                                 </div>
                             </div>
                         </!--div-->
-                        
+
                     </div>
                     <div class="col-12 col-lg-3">
                         <div class="card">
                             <div class="card-body py-4 px-5">
                                 <div class="d-flex align-items-center">
-                                    
+
                                     <div class="ms-3 name">
                                         <h5 class="font-bold">Bienvenido</h5>
                                         <h6 class="text-muted mb-0">Enlace Inmobiliario</h6>
@@ -332,7 +331,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!--div-- class="card">
                             <div class="card-header">
                                 <h4>Operaciones</h4>
@@ -348,7 +347,9 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p><b>&nbsp;Copyright&nbsp;&copy; Enlace Inmobiliario <script>document.write(new Date().getFullYear());</script></b></p>
+                        <p><b>&nbsp;Copyright&nbsp;&copy; Enlace Inmobiliario <script>
+                                    document.write(new Date().getFullYear());
+                                </script></b></p>
                     </div>
                     <!--div-- class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
@@ -366,7 +367,7 @@
     <script src="https://kit.fontawesome.com/1ffc2bde27.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
     <script>
-		// This is the "Offline page" service worker
+        // This is the "Offline page" service worker
 
         importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
@@ -382,45 +383,44 @@
         const offlineFallbackPage = "index.php";
 
         self.addEventListener("message", (event) => {
-        if (event.data && event.data.type === "SKIP_WAITING") {
-            self.skipWaiting();
-        }
+            if (event.data && event.data.type === "SKIP_WAITING") {
+                self.skipWaiting();
+            }
         });
 
         self.addEventListener('install', async (event) => {
-        event.waitUntil(
-            caches.open(CACHE)
-            .then((cache) => cache.add(offlineFallbackPage))
-        );
+            event.waitUntil(
+                caches.open(CACHE)
+                .then((cache) => cache.add(offlineFallbackPage))
+            );
         });
 
         if (workbox.navigationPreload.isSupported()) {
-        workbox.navigationPreload.enable();
+            workbox.navigationPreload.enable();
         }
 
         self.addEventListener('fetch', (event) => {
-        if (event.request.mode === 'navigate') {
-            event.respondWith((async () => {
-            try {
-                const preloadResp = await event.preloadResponse;
+            if (event.request.mode === 'navigate') {
+                event.respondWith((async () => {
+                    try {
+                        const preloadResp = await event.preloadResponse;
 
-                if (preloadResp) {
-                return preloadResp;
-                }
+                        if (preloadResp) {
+                            return preloadResp;
+                        }
 
-                const networkResp = await fetch(event.request);
-                return networkResp;
-            } catch (error) {
+                        const networkResp = await fetch(event.request);
+                        return networkResp;
+                    } catch (error) {
 
-                const cache = await caches.open(CACHE);
-                const cachedResp = await cache.match(offlineFallbackPage);
-                return cachedResp;
+                        const cache = await caches.open(CACHE);
+                        const cachedResp = await cache.match(offlineFallbackPage);
+                        return cachedResp;
+                    }
+                })());
             }
-            })());
-        }
         });
-		
-	</script>
+    </script>
 </body>
 
 </html>
