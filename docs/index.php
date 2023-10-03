@@ -230,7 +230,7 @@ include('fn/estaditicas.php');
             </header>
 
             <!--div class="page-heading">
-                <h3>Enlace Inmobiliario</h3>
+                <h3>Esteban Costela</h3>
             </div-->
             <div class="page-content">
                 <section class="row">
@@ -326,7 +326,7 @@ include('fn/estaditicas.php');
 
                                     <div class="ms-3 name">
                                         <h5 class="font-bold">Bienvenido</h5>
-                                        <h6 class="text-muted mb-0">Enlace Inmobiliario</h6>
+                                        <h6 class="text-muted mb-0">Esteban Costela</h6>
                                     </div>
                                 </div>
                             </div>
@@ -347,7 +347,7 @@ include('fn/estaditicas.php');
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p><b>&nbsp;Copyright&nbsp;&copy; Enlace Inmobiliario <script>
+                        <p><b>&nbsp;Copyright&nbsp;&copy; Esteban Costela <script>
                                     document.write(new Date().getFullYear());
                                 </script></b></p>
                     </div>

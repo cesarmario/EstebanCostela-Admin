@@ -548,7 +548,7 @@ include('fn/datos_inmueble.php');
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>&nbsp;Copyright <b>&copy; Enlace Inmobiliario <script>
+                        <p>&nbsp;Copyright <b>&copy; Esteban Costela <script>
                                     document.write(new Date().getFullYear());
                                 </script></b></p>
                     </div>

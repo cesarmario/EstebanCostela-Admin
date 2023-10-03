@@ -334,7 +334,7 @@ include('fn/datos_pedido.php');
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>&nbsp;2022 &copy; Enlace Inmobiliario</p>
+                        <p>&nbsp;2022 &copy; Esteban Costela</p>
                     </div>
                 </div>
             </footer>

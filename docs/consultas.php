@@ -1,7 +1,7 @@
 <?PHP
-    session_start();
-    include('fn/login_ctrl.php');
-    include('fn/list_consultas.php');
+session_start();
+include('fn/login_ctrl.php');
+include('fn/list_consultas.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -63,10 +63,10 @@
                                 </li>
                                 <li class="submenu-item">
                                     <a href="pedidos.php">Pedidos</a>
-                                </li>                              
+                                </li>
                             </ul>
                         </li>
-                        
+
                         <li class="sidebar-item has-sub ">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
@@ -81,35 +81,35 @@
                                 </li>
                                 <li class="submenu-item">
                                     <a href="propiedades.php">Propiedades</a>
-                                </li>                                  
+                                </li>
                             </ul>
-                        </li> 
-                        
+                        </li>
+
                         <!-- Seccion Administrativa: Solo se habilita si el ROL del Usuario es Administrador -->
-                        <?PHP if ($_SESSION['rolUsu'] =='1') { ?>
+                        <?PHP if ($_SESSION['rolUsu'] == '1') { ?>
                             <li class="sidebar-item  has-sub">
                                 <a href="#" class='sidebar-link'>
                                     <i class="bi bi-person-badge-fill"></i>
                                     <span>Permisos</span>
                                 </a>
                                 <ul class="submenu ">
-                                <li class="submenu-item ">
+                                    <li class="submenu-item ">
                                         <a href="usuarios.php">Usuarios</a>
-                                    </li>  
+                                    </li>
                                 </ul>
                             </li>
                         <?PHP } else { ?>
                             <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-person-badge-fill"></i>
-                                <span>Perfil</span>
-                            </a>
-                            <ul class="submenu ">
-                            <li class="submenu-item ">
-                                    <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m">Mis Datos</a>
-                                </li>  
-                            </ul>
-                        </li>    
+                                <a href="#" class='sidebar-link'>
+                                    <i class="bi bi-person-badge-fill"></i>
+                                    <span>Perfil</span>
+                                </a>
+                                <ul class="submenu ">
+                                    <li class="submenu-item ">
+                                        <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m">Mis Datos</a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?PHP } ?>
                         <!-- /Seccion Administrativa-->
 
@@ -134,9 +134,7 @@
                             <i class="bi bi-justify fs-3"></i>
                         </a>
 
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -153,7 +151,7 @@
                                         <li><a class="dropdown-item">No hay notificaciones!</a></li>
                                     </ul>
                                 </!li -->
-                            </ul> 
+                            </ul>
                             <div class="dropdown">
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
@@ -172,15 +170,14 @@
                                     <li>
                                         <h6 class="dropdown-header">Hola!</h6>
                                     </li>
-                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
+                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
                                             Perfil</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
                                             Ayuda</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="fn/logout.php"><i
-                                                class="icon-mid bi bi-box-arrow-left me-2"></i> Cerrar Sesion</a></li>
+                                    <li><a class="dropdown-item" href="fn/logout.php"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Cerrar Sesion</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -190,27 +187,29 @@
 
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-12">                        
+                    <div class="col-12 col-lg-12">
                         <div class="row">
-                            <div class="col-12">                                  
+                            <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Consultas desde la Web</h4>
-                                    </div>                                    
+                                    </div>
                                     <div class="card-body">
-                                         <?PHP echo $listadoConsultas; ?>                                     
+                                        <?PHP echo $listadoConsultas; ?>
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
-                    </div>                    
+                        </div>
+                    </div>
                 </section>
             </div>
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>&nbsp;Copyright <b>&copy; Enlace Inmobiliario <script>document.write(new Date().getFullYear());</script></b></p>
+                        <p>&nbsp;Copyright <b>&copy; Esteban Costela <script>
+                                    document.write(new Date().getFullYear());
+                                </script></b></p>
                     </div>
                 </div>
             </footer>

@@ -60,9 +60,9 @@
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="#">Propiedades</a>
-                                </li>                                
+                                </li>
                             </ul>
-                        </li>                        
+                        </li>
 
                         <li class="sidebar-item  ">
                             <a href="#" class='sidebar-link'>
@@ -106,7 +106,7 @@
             </div>
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-9">                        
+                    <div class="col-12 col-lg-9">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -119,16 +119,18 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
-                    
+
                 </section>
             </div>
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>&nbsp;Copyright <b>&copy; Enlace Inmobiliario <script>document.write(new Date().getFullYear());</script></b></p>
+                        <p>&nbsp;Copyright <b>&copy; Esteban Costela <script>
+                                    document.write(new Date().getFullYear());
+                                </script></b></p>
                     </div>
                 </div>
             </footer>
