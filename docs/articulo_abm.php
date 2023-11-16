@@ -1,8 +1,7 @@
 <?PHP
 session_start();
 include('fn/login_ctrl.php');
-include('fn/list_opciones.php');
-include('fn/list_articulos.php');
+include('fn/datos_articulo.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +9,7 @@ include('fn/list_articulos.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion - Articulos</title>
+    <title>Gestion - Localidades</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -189,23 +188,71 @@ include('fn/list_articulos.php');
             </header>
 
             <div class="page-content">
-                <section class="row">
+                <section class="section">
                     <div class="col-12 col-lg-12">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Articulos</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="buttons">
-                                            <a href="articulo_abm.php?abm=a" class="btn btn-outline-success">Nuevo Articulo</a>
-                                        </div>
-                                        <?PHP echo $listado; ?>
-                                    </div>
+                        <form action="fn/abm_articulo.php" method="POST" enctype="multipart/form-data">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="basicInput"><b>Titulo </b></label>
+                                    <input type="text" class="form-control" id='tituloNovedad' name='tituloNovedad' placeholder="Titulo" value='<?PHP echo $tituloNovedad; ?>' require>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="basicInput"><b>Fecha </b></label>
+                                    <input type="date" class="form-control" id='fechaNovedad' name='fechaNovedad' placeholder="Fecha" value='<?PHP echo $fechaNovedad; ?>' require>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label"><b>Detalle</b></label>
+                                    <textarea class="form-control" id='detalleNovedad' name='detalleNovedad' rows="3"><?PHP echo $detalleNovedad; ?></textarea>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label"><b>Tipo de Articulo</b></label>
+                                    <select class="choices form-select" id='idCategoria' name='idCategoeria' require>
+                                        <option value='<?PHP echo $idCategoria; ?>'><?PHP echo $nombreCategoria; ?></option>
+                                        <?PHP while ($categoria = mysqli_fetch_assoc($rtscategoria)) { ?>
+                                            <option value="<?PHP echo $categoria['idCategoria']; ?>"> <?PHP echo $categoria['nombreCategoria']; ?></option>
+                                        <?PHP } ?>
+                                    </select>
+                                </div>
+
+                                <?PHP if (!empty($archivoNovedad)) { ?>
+                                    <?PHP echo $imagen; ?>
+                                    <a href="fn/abm_articulo.php?archivoNovedad=<?PHP echo $archivoNovedad; ?>&idNovedad=<?PHP echo $_REQUEST['idNovedad']; ?>&abm=x" class="btn btn-danger me-1 mb-1"><i class="fa-solid fa-trash-can"'></i></i> Eliminar Archivo</a>
+                                    <br>&nbsp;</br>
+                                <?PHP } else { ?>
+                                    <?PHP if ($_REQUEST['abm'] == 'a') { ?>
+                                        <div class="form-group mb-3">
+                                            <label>Subir Archivo</label><br>
+                                            <input type="file" name="archivo" id="archivo">
+                                        </div>
+                                    <?PHP } else { ?>
+                                        <form action="fn/abm_articulo.php" method="POST" enctypes="multipart/form-data">
+                                            <div class="form-group mb-3">
+                                                <label>Subir Archivo</label><br>
+                                                <input type="file" name="archivo" id="archivo">
+                                            </div>    
+                                            <div class="buttons">
+                                                <!--input type="hidden" id="tipoNovedad" name="tipoNovedad" value="<?PHP echo $tipoNovedad ?>" /--> 
+                                                <input type="hidden" id="idNovedad" name="idNovedad" value="<?PHP echo $idNovedad; ?>" />
+                                                <input type="hidden" id="abm" name="abmi" value="i" />
+                                                <button type="submit" class="btn btn-info me-1 mb-1">Subir Archivo</button>
+                                            </div>
+                                        </form>
+                                    <?PHP } ?>
+
+                                <?PHP } ?>                            
+                        
+                                <div class="buttons">
+                                    <!--input type="hidden" id="tipoNovedad" name="tipoNovedad" value="<?PHP echo $tipoNovedad ?>" /--> 
+                                    <input type="hidden" id="idNovedad" name="idNovedad" value="<?PHP echo $idNovedad; ?>" />
+                                    <input type="hidden" id="abm" name="abm" value="<?PHP echo $_REQUEST['abm']; ?>" />
+                                    <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
+                                    <a href="index.php" class="btn btn-warning me-1 mb-1">Cancelar</a>
+                                </div>                            
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </section>
             </div>
@@ -230,11 +277,9 @@ include('fn/list_articulos.php');
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script>
         // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
-    <script src="https://kit.fontawesome.com/1ffc2bde27.js" crossorigin="anonymous"></script>
-    <script src="assets/js/main.js"></script>
+        let table1 = document.querySelector(' #table1'); let dataTable=new simpleDatatables.DataTable(table1); </script>
+                                            <script src="https://kit.fontawesome.com/1ffc2bde27.js" crossorigin="anonymous"></script>
+                                            <script src="assets/js/main.js"></script>
 </body>
 
 </html>

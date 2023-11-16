@@ -101,7 +101,7 @@ include('fn/estaditicas.php');
                                     <a href="consultas.php">Consultas</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="pedidos.php">Pedidos</a>
+                                    <a href="articulos.php">Articulos</a>
                                 </li>
                             </ul>
                         </li>
@@ -276,12 +276,12 @@ include('fn/estaditicas.php');
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="stats-icon red">
-                                                    <a href="pedidos.php"><i class="iconly-boldAdd-User"></i></a>
+                                                    <a href="articulos.php"><i class="iconly-boldAdd-User"></i></a>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Pedidos</h6>
-                                                <h6 class="font-extrabold mb-0"><?PHP echo $totalPedidos; ?></h6>
+                                                <h6 class="text-muted font-semibold">Blog</h6>
+                                                <h6 class="font-extrabold mb-0"><?PHP echo $totalArticulos; ?></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -367,12 +367,6 @@ include('fn/estaditicas.php');
     <script src="https://kit.fontawesome.com/1ffc2bde27.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        // This is the "Offline page" service worker
-
-        importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-        const CACHE = "pwabuilder-page";
-
         // This is the "Offline page" service worker
 
         importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
