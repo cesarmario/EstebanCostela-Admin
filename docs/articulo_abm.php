@@ -209,7 +209,7 @@ include('fn/datos_articulo.php');
 
                                 <div class="form-group mb-3">
                                     <label for="exampleFormControlTextarea1" class="form-label"><b>Tipo de Articulo</b></label>
-                                    <select class="choices form-select" id='idCategoria' name='idCategoeria' require>
+                                    <select class="choices form-select" id='idCategoria' name='idCategoria' require>
                                         <option value='<?PHP echo $idCategoria; ?>'><?PHP echo $nombreCategoria; ?></option>
                                         <?PHP while ($categoria = mysqli_fetch_assoc($rtscategoria)) { ?>
                                             <option value="<?PHP echo $categoria['idCategoria']; ?>"> <?PHP echo $categoria['nombreCategoria']; ?></option>

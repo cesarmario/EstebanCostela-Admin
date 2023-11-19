@@ -11,12 +11,12 @@ if ($_REQUEST['abm'] == 'a') {
     `tituloNovedad`,
     `fechaNovedad`,
     `detalleNovedad`,
-    `tipoNovedad`    
+    `idCategoria`    
     )VALUES(
     '$_REQUEST[tituloNovedad]',
     '$_REQUEST[fechaNovedad]',
     '$_REQUEST[detalleNovedad]',
-    '$_REQUEST[tipoNovedad]')";
+    '$_REQUEST[idCategoria]')";
     $result = mysqli_query($conexion, $query);
     if (mysqli_affected_rows($conexion) > 0) {
         $queryctrl = "SELECT * FROM novedad WHERE baja != '1' ORDER BY idNovedad DESC LIMIT 1";
@@ -211,7 +211,7 @@ if ($_REQUEST['abmi'] == 'i') { //Funcion Modificar Imagen
         tituloNovedad='$_REQUEST[tituloNovedad]',
         fechaNovedad='$_REQUEST[fechaNovedad]',
         detalleNovedad='$_REQUEST[detalleNovedad]',
-        tipoNovedad='$_REQUEST[tipoNovedad]'
+        idCategoria='$_REQUEST[idCategoria]'
         WHERE idNovedad = '$_REQUEST[idNovedad]' ";
         $result = mysqli_query($conexion, $query);
         if (mysqli_affected_rows($conexion) > 0) { ?>
