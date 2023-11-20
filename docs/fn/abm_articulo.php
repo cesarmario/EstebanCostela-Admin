@@ -1,6 +1,6 @@
 <?PHP session_start();
 include('conexion.php');
-include('process.php');
+// include('process.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL ^ E_NOTICE);
@@ -62,7 +62,7 @@ if ($_REQUEST['abm'] == 'a') {
             };
 
             $nombre = str_pad($idNovedad, 6, "0", STR_PAD_LEFT) . "." . $qtipo;
-            $directorio = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['sesionc_Path'] . '/web/images/novedades/';
+            $directorio = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['sesionc_Path'] . '/gestion/assets/images/novedades/';
 
             $fullpath = $directorio . $nombre;
             /* echo "Nombre: " . $nombre;
@@ -91,7 +91,7 @@ if ($_REQUEST['abm'] == 'a') {
             } else {
                 echo "<BR>Error  al subir el Archivo!\n"; ?>
                 <script>
-                    alert("Ocurrio un Error!!");
+                    alert("Ocurrio un Error al subir la Imagen!!");
                 </script>
         <?PHP }
         } ?>
@@ -115,7 +115,7 @@ if ($_REQUEST['abm'] == 'x') { //Funcion Eliminar Imagen
     if (mysqli_affected_rows($conexion) > 0) {
         //$directorio = "/gestion/assets/images/usuarios/";
         $nombre = $_REQUEST['archivoNovedad'];
-        $directorio = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['sesionc_Path'] . '/web/images/novedades/';
+        $directorio = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['sesionc_Path'] . '/gestion/assets/images/novedades/';
         $imagen = $directorio . $nombre;
         unlink($imagen); ?>
         <script>
@@ -175,7 +175,7 @@ if ($_REQUEST['abmi'] == 'i') { //Funcion Modificar Imagen
         };
 
         $nombre = str_pad($_REQUEST['idNovedad'], 6, "0", STR_PAD_LEFT) . "." . $qtipo;
-        $directorio = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['sesionc_Path'] . '/web/images/novedades/';
+        $directorio = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['sesionc_Path'] . '/gestion/assets/images/novedades/';
         $fullpath = $directorio . $nombre;
 
         if (move_uploaded_file($_FILES['archivo']['tmp_name'], $fullpath)) {
@@ -204,7 +204,7 @@ if ($_REQUEST['abmi'] == 'i') { //Funcion Modificar Imagen
     </script>
 <?PHP } else { ?>
 
-    <!-- Actctualizar Datos de Articulo -->
+    <!-- Actualizar Datos de Articulo -->
     <?PHP
     if ($_REQUEST['abm'] == 'm') {
         $query = "UPDATE novedad  SET

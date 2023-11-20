@@ -27,20 +27,22 @@ while ($articulos = mysqli_fetch_assoc($rtsnovedades)) {
 
     $imagen = ".../images/novedades/" . $articulo['archivoNovedad'];
 
-    switch ($articulos['tipoNovedad']) {
-        case 'PDF':
-            $icoTipoNovedad = "bi bi-file-text";
-            break;
-        case 'IMG':
-            $icoTipoNovedad = "bi bi-card-image";
-            break;
-        case 'VID':
-            $icoTipoNovedad = "bi bi-youtube";
-            break;
-        case 'TXT':
-            $icoTipoNovedad = "bi bi-card-text";
-            break;
-    };
+    $icoTipoNovedad = "bi bi-card-image";
+
+    // switch ($articulos['tipoNovedad']) {
+    //     case 'PDF':
+    //         $icoTipoNovedad = "bi bi-file-text";
+    //         break;
+    //     case 'IMG':
+    //         $icoTipoNovedad = "bi bi-card-image";
+    //         break;
+    //     case 'VID':
+    //         $icoTipoNovedad = "bi bi-youtube";
+    //         break;
+    //     case 'TXT':
+    //         $icoTipoNovedad = "bi bi-card-text";
+    //         break;
+    // };
 
     $datosmodal = "<button type='button' class='btn btn-primary block' data-bs-toggle='modal' data-bs-target='#DatosModal" . $articulos['idNovedad'] . "'><i class='" . $icoTipoNovedad . "'></i></button>";
     $datosmodal .= "<div class='modal fade' id='DatosModal" . $articulos['idNovedad'] . "' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>";
